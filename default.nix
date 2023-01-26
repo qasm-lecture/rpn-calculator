@@ -14,6 +14,13 @@ pkgs.stdenv.mkDerivation {
   name = "fuzzer-example";
   src = ./.;
   nativeBuildInputs = with pkgs; [ afl ];
+  checkInputs = with pkgs; [ gtest ];
+
+  doCheck = true;
+  checkPhase = ''
+    make test
+    ./test
+  '';
 
   installPhase = ''
     mkdir -p $out
