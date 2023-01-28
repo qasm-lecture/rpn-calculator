@@ -3,3 +3,6 @@ out
 main
 fuzz_main
 *.o
+.devcontainer
+.vscode
+test

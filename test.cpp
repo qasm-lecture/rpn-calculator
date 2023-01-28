@@ -30,6 +30,22 @@ TEST(Evaluate, simple_multiply_works){
     EXPECT_EQ(81, evaluate("99*"));
 }
 
+TEST(Evaluate, simple_ln_works) {
+  EXPECT_EQ(2, evaluate("9l"));
+}
+
+TEST(Evaluate, simple_exp_works) {
+  EXPECT_EQ(7, evaluate("2e"));
+}
+
+TEST(Evaluate, simple_square_works) {
+  EXPECT_EQ(16, evaluate("4s"));
+}
+
+TEST(Evaluate, simple_sqrt_works) {
+  EXPECT_EQ(3, evaluate("9q"));
+}
+
 TEST(SplitStringsBySpace, basic_input_works) {
   std::string input = "This is a test string";
   std::vector<std::string> expected = {"This", "is", "a", "test", "string"};
