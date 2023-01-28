@@ -71,7 +71,7 @@ void processOperator(const char op, stack_type &stack) {
     }
 }
 
-float evaluate(const std::string &s) {
+float evaluate(const std::string &s, int &counter) {
     stack_type stack;
 
     for (const char c : s) {
@@ -80,14 +80,15 @@ float evaluate(const std::string &s) {
             case '-': apply_binary_function(minus,    stack); break;
             case '*': apply_binary_function(multiply, stack); break;
             case '/': apply_binary_function(divide,   stack); break;
-            case 'l': apply_unary_function(ln, stack); break;
+            case 'l': apply_unary_function(ln,          stack); break;
             case 'e': apply_unary_function(exponential, stack); break;
-            case 's': apply_unary_function(square, stack); break;
-            case 'q': apply_unary_function(squareroot, stack); break;
+            case 's': apply_unary_function(square,      stack); break;
+            case 'q': apply_unary_function(squareroot,  stack); break;
             case '0'...'9': stack.push(c - '0'); break;
             default:
                 throw std::invalid_argument("invalid input");
         }
+        counter++;
     }
     if(stack.empty())
         throw std::invalid_argument("invalid input");

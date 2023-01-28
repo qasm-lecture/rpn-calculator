@@ -29,4 +29,4 @@ bool isStringNumber(const std::string& input);
 
 void processOperator(const char op, stack_type &stack);
 
-float evaluate(const std::string &s);
+float evaluate(const std::string &s, int &counter);
