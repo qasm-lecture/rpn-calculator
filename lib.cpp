@@ -1,6 +1,9 @@
 #include "lib.hpp"
 
 #include <stack>
+#include <iostream>
+#include <sstream>
+#include <iterator>
 
 int plus(    int a, int b) { return a + b; }
 int minus(   int a, int b) { return a - b; }

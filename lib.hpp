@@ -1,9 +1,7 @@
 #include <stack>
 #include <string>
-#include <iostream>
-#include <sstream>
 #include <vector>
-#include <iterator>
+
 
 using binary_int_function = int (*)(int, int);
 
