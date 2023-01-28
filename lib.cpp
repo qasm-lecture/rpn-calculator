@@ -38,6 +38,15 @@ bool isStringNumber(const std::string& input) {
     return iss.eof() && !iss.fail();
 }
 
+void processOperator(const char op, stack_type &stack) {
+    switch (op) {
+    case '+': change_stack_state(plus,     stack); break;
+    case '-': change_stack_state(minus,    stack); break;
+    case '*': change_stack_state(multiply, stack); break;
+    case '/': change_stack_state(divide,   stack); break;
+    }
+}
+
 int evaluate(const std::string &s) {
   stack_type stack;
 
