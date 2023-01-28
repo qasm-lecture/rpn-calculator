@@ -81,7 +81,7 @@ float evaluate(const std::string &s, int &counter)
     std::vector<std::string> inputs = splitStringBySpace(s);
     for (const std::string &input : inputs){
         if (isStringNumber(input)){
-          stack.push(std::stoi(input));
+          stack.push(std::stof(input));
         }
         else{
           processOperator(input[0], stack);

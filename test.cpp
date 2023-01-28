@@ -4,56 +4,56 @@
 
 TEST(Evaluate, simple_addition_works) {
     int counter = 1;
-    EXPECT_FLOAT_EQ(0, evaluate("00+", counter));
-    EXPECT_FLOAT_EQ(2, evaluate("11+", counter));
-    EXPECT_FLOAT_EQ(10, evaluate("19+", counter));
+    EXPECT_FLOAT_EQ(0, evaluate("0 0 +", counter));
+    EXPECT_FLOAT_EQ(2, evaluate("1 1 +", counter));
+    EXPECT_FLOAT_EQ(10, evaluate("1 9 +", counter));
 }
 
 TEST(Evaluate, simple_substraction_works){
     int counter = 1;
-    EXPECT_FLOAT_EQ(0.0, evaluate("00-", counter));
-    EXPECT_FLOAT_EQ(0.0, evaluate("11-", counter));
-    EXPECT_FLOAT_EQ(6.0, evaluate("93-", counter));
-    EXPECT_FLOAT_EQ(-6.0, evaluate("39-", counter));
+    EXPECT_FLOAT_EQ(0.0, evaluate("0 0 -", counter));
+    EXPECT_FLOAT_EQ(0.0, evaluate("1 1 -", counter));
+    EXPECT_FLOAT_EQ(6.0, evaluate("9 3 -", counter));
+    EXPECT_FLOAT_EQ(-6.0, evaluate("3 9 -", counter));
 }
 
 TEST(Evaluate, simple_divide_works){
     int counter = 1;
-    EXPECT_FLOAT_EQ(1.0f, evaluate("11/", counter));
-    EXPECT_FLOAT_EQ(3.0f, evaluate("93/", counter));
-    EXPECT_FLOAT_EQ(3.0/9.0, evaluate("39/", counter));
+    EXPECT_FLOAT_EQ(1.0f, evaluate("1 1 /", counter));
+    EXPECT_FLOAT_EQ(3.0f, evaluate("9 3 /", counter));
+    EXPECT_FLOAT_EQ(3.0/9.0, evaluate("3 9 /", counter));
 }
 
 TEST(Evaluate, simple_divide_fails){
     int counter = 1;
-    EXPECT_THROW(evaluate("00/", counter), std::invalid_argument);
+    EXPECT_THROW(evaluate("0 0 /", counter), std::invalid_argument);
 }
 
 TEST(Evaluate, simple_multiply_works){
     int counter = 1;
-    EXPECT_FLOAT_EQ(0.0, evaluate("10*", counter));
-    EXPECT_FLOAT_EQ(1.0, evaluate("11*", counter));
-    EXPECT_FLOAT_EQ(81.0, evaluate("99*", counter));
+    EXPECT_FLOAT_EQ(0.0, evaluate("1 0 *", counter));
+    EXPECT_FLOAT_EQ(1.0, evaluate("1 1 *", counter));
+    EXPECT_FLOAT_EQ(81.0, evaluate("9 9 *", counter));
 }
 
 TEST(Evaluate, simple_ln_works) {
     int counter = 1;
-    EXPECT_FLOAT_EQ(ln(9), evaluate("9l", counter));
+    EXPECT_FLOAT_EQ(ln(9), evaluate("9 l", counter));
 }
 
 TEST(Evaluate, simple_exp_works) {
     int counter = 1;
-    EXPECT_FLOAT_EQ(exponential(2.0), evaluate("2e", counter));
+    EXPECT_FLOAT_EQ(exponential(2.0), evaluate("2 e", counter));
 }
 
 TEST(Evaluate, simple_square_works) {
     int counter = 1;
-    EXPECT_FLOAT_EQ(16.0, evaluate("4s", counter));
+    EXPECT_FLOAT_EQ(16.0, evaluate("4 s", counter));
 }
 
 TEST(Evaluate, simple_sqrt_works) {
     int counter = 1;
-    EXPECT_FLOAT_EQ(3.0, evaluate("9q", counter));
+    EXPECT_FLOAT_EQ(3.0, evaluate("9 q", counter));
 }
 
 TEST(SplitStringsBySpace, basic_input_works) {
