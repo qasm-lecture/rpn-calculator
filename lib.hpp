@@ -20,4 +20,6 @@ std::vector<std::string> splitStringBySpace(const std::string& input);
 
 bool isStringNumber(const std::string& input);
 
+void processOperator(const char op, stack_type &stack);
+
 int evaluate(const std::string &s);
