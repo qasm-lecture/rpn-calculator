@@ -6,14 +6,14 @@
 #include <iterator>
 #include <cmath>
 
-int plus(    int a, int b) { return a + b; }
-int minus(   int a, int b) { return a - b; }
-int multiply(int a, int b) { return a * b; }
-int divide(  int a, int b) { return a / b; }
-int ln(      int a) { return log(a); }
-int exp(     int a) { return exp(a); }
-int square(  int a) { return a * a; }
-int sqrt(    int a) { return sqrt(a); }
+int plus(       int a, int b) { return a + b; }
+int minus(      int a, int b) { return a - b; }
+int multiply(   int a, int b) { return a * b; }
+int divide(     int a, int b) { return a / b; }
+int ln(         int a) { return std::log(a); }
+int exponential(int a) { return std::exp(a); }
+int square(     int a) { return a * a; }
+int squareroot( int a) { return std::sqrt(a); }
 
 int pop_stack(stack_type &stack) {
   const auto ret{stack.top()};
@@ -58,9 +58,9 @@ int evaluate(const std::string &s) {
     case '*': apply_binary_function(multiply, stack); break;
     case '/': apply_binary_function(divide,   stack); break;
     case 'l': apply_unary_function(ln, stack); break;
-    case 'e': apply_unary_function(exp, stack); break;
+    case 'e': apply_unary_function(exponential, stack); break;
     case 's': apply_unary_function(square, stack); break;
-    case 'q': apply_unary_function(sqrt, stack); break;
+    case 'q': apply_unary_function(squareroot, stack); break;
     case '0'...'9': stack.push(c - '0'); break;
     }
   }

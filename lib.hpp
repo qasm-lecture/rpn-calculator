@@ -7,14 +7,14 @@ using binary_int_function = int (*)(int, int);
 
 using unary_int_function = int (*)(int);
 
-int plus(    int a, int b);
-int minus(   int a, int b);
-int multiply(int a, int b);
-int divide(  int a, int b);
-int ln(      int a);
-int exp(     int a);
-int square(  int a);
-int sqrt(    int a);
+int plus(       int a, int b);
+int minus(      int a, int b);
+int multiply(   int a, int b);
+int divide(     int a, int b);
+int ln(         int a);
+int exponential(int a);
+int square(     int a);
+int squareroot( int a);
 
 using stack_type = std::stack<int>;
 
