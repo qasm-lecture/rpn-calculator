@@ -1,5 +1,5 @@
 #include "lib.hpp"
-
+#include <stdexcept>
 #include <gtest/gtest.h>
 
 TEST(Evaluate, simple_addition_works) {
@@ -18,6 +18,10 @@ TEST(Evaluate, simple_divide_works){
     EXPECT_EQ(1, evaluate("11/"));
     EXPECT_EQ(3, evaluate("93/"));
     EXPECT_EQ(0, evaluate("39/"));
+}
+
+TEST(Evaluate, simple_divide_fails){
+    EXPECT_THROW(evaluate("00/"), std::invalid_argument);
 }
 
 TEST(Evaluate, simple_multiply_works){
@@ -60,8 +64,15 @@ TEST(ISSTRINGNUMBER, decimal_works) {
 }
 
 TEST(ISSTRINGNUMBER, not_a_number_works) {
-  std::string input = "notanumber";
-  EXPECT_FALSE(isStringNumber(input));
+    std::string input = "notanumber";
+    EXPECT_FALSE(isStringNumber(input));
+}
+TEST(Evaluate, invalid_input_fails){
+    EXPECT_THROW(evaluate("-"),  std::invalid_argument);
+    EXPECT_THROW(evaluate("1*"),  std::invalid_argument);
+    EXPECT_THROW(evaluate("blub"),  std::invalid_argument);
+    EXPECT_THROW(evaluate("b/"),  std::invalid_argument);
+    EXPECT_THROW(evaluate("1w3+"),  std::invalid_argument);
 }
 
 int main(int argc, char **argv) {
