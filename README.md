@@ -26,3 +26,23 @@ For every crash, AFL will create a file in `out/crashes`. Each file contains
 input on which the RPN calculator crashed. Examine such inputs, run the program
 manually without the fuzzer with them, analyze the cause for the crash and
 fix it, one by one.
+
+## Usage
+
+Following functions are supported:
+* addition (+)
+* subtraction (-)
+* multiplication (*)
+* division (/)
+* ln (l)
+* exponential (e)
+* square (s)
+* squareroot (q)
+
+### Example
+
+```bash
+9l
+User input is "9l"
+Result is: 2
+```
