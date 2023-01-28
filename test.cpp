@@ -3,21 +3,24 @@
 #include <gtest/gtest.h>
 
 TEST(Evaluate, simple_addition_works) {
-    EXPECT_EQ(0, evaluate("00+"));
-    EXPECT_EQ(2, evaluate("11+"));
-    EXPECT_EQ(10, evaluate("19+"));
+EXPECT_FLOAT_EQ(0, evaluate("00+"));
+EXPECT_FLOAT_EQ(2, evaluate("11+"));
+EXPECT_FLOAT_EQ(10, evaluate("19+"));
 }
+
 TEST(Evaluate, simple_substraction_works){
-    EXPECT_EQ(0, evaluate("00-"));
-    EXPECT_EQ(0, evaluate("11-"));
-    EXPECT_EQ(6, evaluate("93-"));
-    EXPECT_EQ(-6, evaluate("39-"));
+EXPECT_FLOAT_EQ(0.0, evaluate("00-"));
+EXPECT_FLOAT_EQ(0.0, evaluate("11-"));
+EXPECT_FLOAT_EQ(6.0, evaluate("93-"));
+EXPECT_FLOAT_EQ(-6.0, evaluate("39-"));
+
+EXPECT_FLOAT_EQ(1.0/3.0, evaluate("39/"));
 }
 
 TEST(Evaluate, simple_divide_works){
-    EXPECT_EQ(1, evaluate("11/"));
-    EXPECT_EQ(3, evaluate("93/"));
-    EXPECT_EQ(0, evaluate("39/"));
+EXPECT_FLOAT_EQ(1.0f, evaluate("11/"));
+EXPECT_FLOAT_EQ(3.0f, evaluate("93/"));
+EXPECT_FLOAT_EQ(3.0/9.0, evaluate("39/"));
 }
 
 TEST(Evaluate, simple_divide_fails){
@@ -25,25 +28,25 @@ TEST(Evaluate, simple_divide_fails){
 }
 
 TEST(Evaluate, simple_multiply_works){
-    EXPECT_EQ(0, evaluate("10*"));
-    EXPECT_EQ(1, evaluate("11*"));
-    EXPECT_EQ(81, evaluate("99*"));
+EXPECT_FLOAT_EQ(0.0, evaluate("10*"));
+EXPECT_FLOAT_EQ(1.0, evaluate("11*"));
+EXPECT_FLOAT_EQ(81.0, evaluate("99*"));
 }
 
 TEST(Evaluate, simple_ln_works) {
-  EXPECT_EQ(2, evaluate("9l"));
+EXPECT_FLOAT_EQ(ln(9), evaluate("9l"));
 }
 
 TEST(Evaluate, simple_exp_works) {
-  EXPECT_EQ(7, evaluate("2e"));
+EXPECT_FLOAT_EQ(exponential(2.0), evaluate("2e"));
 }
 
 TEST(Evaluate, simple_square_works) {
-  EXPECT_EQ(16, evaluate("4s"));
+EXPECT_FLOAT_EQ(16.0, evaluate("4s"));
 }
 
 TEST(Evaluate, simple_sqrt_works) {
-  EXPECT_EQ(3, evaluate("9q"));
+EXPECT_FLOAT_EQ(3.0, evaluate("9q"));
 }
 
 TEST(SplitStringsBySpace, basic_input_works) {

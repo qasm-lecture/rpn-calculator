@@ -10,6 +10,6 @@ int main() {
 
   std::cout << "User input is \"" << user_input << "\"\n";
 
-  const int result{evaluate(user_input)};
+  const float result{evaluate(user_input)};
   std::cout << "Result is: " << result << '\n';
 }
