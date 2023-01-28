@@ -64,34 +64,29 @@ bool isStringNumber(const std::string& input) {
 
 void processOperator(const char op, stack_type &stack) {
     switch (op) {
-        case '+': change_stack_state(plus,     stack); break;
-        case '-': change_stack_state(minus,    stack); break;
-        case '*': change_stack_state(multiply, stack); break;
-        case '/': change_stack_state(divide,   stack); break;
+    case '+': apply_binary_function(plus,     stack); break;
+    case '-': apply_binary_function(minus,    stack); break;
+    case '*': apply_binary_function(multiply, stack); break;
+    case '/': apply_binary_function(divide,   stack); break;
+    case 'l': apply_unary_function(ln, stack); break;
+    case 'e': apply_unary_function(exponential, stack); break;
+    case 's': apply_unary_function(square, stack); break;
+    case 'q': apply_unary_function(squareroot, stack); break;
     }
 }
 
-float evaluate(const std::string &s, int &counter) {
+float evaluate(const std::string &s, int &counter)
+{
     stack_type stack;
-
-    for (const char c : s) {
-        switch (c) {
-            case '+': apply_binary_function(plus,     stack); break;
-            case '-': apply_binary_function(minus,    stack); break;
-            case '*': apply_binary_function(multiply, stack); break;
-            case '/': apply_binary_function(divide,   stack); break;
-            case 'l': apply_unary_function(ln,          stack); break;
-            case 'e': apply_unary_function(exponential, stack); break;
-            case 's': apply_unary_function(square,      stack); break;
-            case 'q': apply_unary_function(squareroot,  stack); break;
-            case '0'...'9': stack.push(c - '0'); break;
-            default:
-                throw std::invalid_argument("invalid input");
+    std::vector<std::string> inputs = splitStringBySpace(s);
+    for (const std::string &input : inputs){
+        if (isStringNumber(input)){
+          stack.push(std::stof(input));
+        }
+        else{
+          processOperator(input[0], stack);
         }
         counter++;
     }
-    if(stack.empty())
-        throw std::invalid_argument("invalid input");
-
-    return {stack.top()};
+    return pop_stack(stack);
 }
