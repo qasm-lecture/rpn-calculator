@@ -23,6 +23,13 @@ void change_stack_state(const binary_int_function &operation, stack_type &stack)
   stack.push(operation(op_a, op_b));
 }
 
+std::vector<std::string> splitStringBySpace(const std::string& input) {
+    std::istringstream iss(input);
+    std::vector<std::string> result{std::istream_iterator<std::string>{iss},
+                                    std::istream_iterator<std::string>{}};
+    return result;
+}
+
 int evaluate(const std::string &s) {
   stack_type stack;
 

@@ -1,5 +1,9 @@
 #include <stack>
 #include <string>
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <iterator>
 
 using binary_int_function = int (*)(int, int);
 
@@ -13,5 +17,7 @@ using stack_type = std::stack<int>;
 int pop_stack(stack_type &stack);
 
 void change_stack_state(const binary_int_function &operation, stack_type &stack);
+
+std::vector<std::string> splitStringBySpace(const std::string& input);
 
 int evaluate(const std::string &s);
