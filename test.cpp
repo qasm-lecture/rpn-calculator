@@ -44,6 +44,26 @@ TEST(SplitStringsBySpace, multiple_and_leading_spaces_works) {
   EXPECT_EQ(splitStringBySpace(input), expected);
 }
 
+TEST(ISSTRINGNUMBER, positiveNumber_works) {
+  std::string input = "123";
+  EXPECT_TRUE(isStringNumber(input));
+}
+
+TEST(ISSTRINGNUMBER, negativeNumber_works) {
+  std::string input = "-323";
+  EXPECT_TRUE(isStringNumber(input));
+}
+
+TEST(ISSTRINGNUMBER, decimal_works) {
+  std::string input = "0.324";
+  EXPECT_TRUE(isStringNumber(input));
+}
+
+TEST(ISSTRINGNUMBER, not_a_number_works) {
+  std::string input = "notanumber";
+  EXPECT_FALSE(isStringNumber(input));
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

@@ -18,4 +18,6 @@ void change_stack_state(const binary_int_function &operation, stack_type &stack)
 
 std::vector<std::string> splitStringBySpace(const std::string& input);
 
+bool isStringNumber(const std::string& input);
+
 int evaluate(const std::string &s);

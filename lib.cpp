@@ -29,6 +29,15 @@ std::vector<std::string> splitStringBySpace(const std::string& input) {
     return result;
 }
 
+
+bool isStringNumber(const std::string& input) {
+    std::istringstream iss(input);
+    double d;
+    iss >> d;
+    // Check if the entire string has been consumed by the stream
+    return iss.eof() && !iss.fail();
+}
+
 int evaluate(const std::string &s) {
   stack_type stack;
 
