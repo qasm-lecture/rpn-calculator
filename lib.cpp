@@ -2,14 +2,10 @@
 
 #include <stack>
 
-using binary_int_function = int (*)(int, int);
-
 int plus(    int a, int b) { return a + b; }
 int minus(   int a, int b) { return a - b; }
 int multiply(int a, int b) { return a * b; }
 int divide(  int a, int b) { return a / b; }
-
-using stack_type = std::stack<int>;
 
 int pop_stack(stack_type &stack) {
   const auto ret{stack.top()};
