@@ -6,23 +6,23 @@
 #include <iterator>
 #include <cmath>
 
-int plus(int a, int b) { return a + b; }
+float plus(float a, float b) { return a + b; }
 
-int minus(int a, int b) { return a - b; }
+float minus(float a, float b) { return a - b; }
 
-int multiply(int a, int b) { return a * b; }
+float multiply(float a, float b) { return a * b; }
 
-int divide(int a, int b) {
+float divide(float a, float b) {
     if(b == 0)
         throw std::invalid_argument("division by zero is not allowed");
     return a / b;
 }
-int ln(         int a) { return std::log(a); }
-int exponential(int a) { return std::exp(a); }
-int square(     int a) { return a * a; }
-int squareroot( int a) { return std::sqrt(a); }
+float ln(         float a) { return std::log(a); }
+float exponential(float a) { return std::exp(a); }
+float square(     float a) { return a * a; }
+float squareroot( float a) { return std::sqrt(a); }
 
-int pop_stack(stack_type &stack) {
+float pop_stack(stack_type &stack) {
     if(stack.empty())
         throw std::invalid_argument("invalid input");
     const auto ret{stack.top()};
@@ -71,7 +71,7 @@ void processOperator(const char op, stack_type &stack) {
     }
 }
 
-int evaluate(const std::string &s) {
+float evaluate(const std::string &s) {
     stack_type stack;
 
     for (const char c : s) {

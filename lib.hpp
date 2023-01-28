@@ -3,22 +3,22 @@
 #include <vector>
 
 
-using binary_int_function = int (*)(int, int);
+using binary_int_function = float (*)(float, float);
 
-using unary_int_function = int (*)(int);
+using unary_int_function = float (*)(float);
 
-int plus(       int a, int b);
-int minus(      int a, int b);
-int multiply(   int a, int b);
-int divide(     int a, int b);
-int ln(         int a);
-int exponential(int a);
-int square(     int a);
-int squareroot( int a);
+float plus(       float a, float b);
+float minus(      float a, float b);
+float multiply(   float a, float b);
+float divide(     float a, float b);
+float ln(         float a);
+float exponential(float a);
+float square(     float a);
+float squareroot( float a);
 
-using stack_type = std::stack<int>;
+using stack_type = std::stack<float>;
 
-int pop_stack(stack_type &stack);
+float pop_stack(stack_type &stack);
 
 void apply_binary_function(const binary_int_function &operation, stack_type &stack);
 void apply_unary_function(const unary_int_function &operation, stack_type &stack);
@@ -29,4 +29,4 @@ bool isStringNumber(const std::string& input);
 
 void processOperator(const char op, stack_type &stack);
 
-int evaluate(const std::string &s);
+float evaluate(const std::string &s);
