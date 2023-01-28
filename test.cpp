@@ -25,7 +25,7 @@ EXPECT_ANY_THROW(evaluate("00/"));
 }
 
 TEST(Evaluate, simple_multiply_works){
-EXPECT_EQ(0, evaluate("10*"));
+    EXPECT_EQ(0, evaluate("10*"));
 EXPECT_EQ(1, evaluate("11*"));
 EXPECT_EQ(81, evaluate("99*"));
 }
