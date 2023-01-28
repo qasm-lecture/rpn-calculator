@@ -1,3 +1,5 @@
+export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+
 timeout --preserve-status 5m make fuzz
 
 if [[ "$(ls -A ./out/hangs)"]] || [["$(ls -A ./out/crashes)" ]]
