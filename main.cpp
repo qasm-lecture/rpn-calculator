@@ -10,6 +10,11 @@ int main() {
 
   std::cout << "User input is \"" << user_input << "\"\n";
 
-  const float result{evaluate(user_input)};
-  std::cout << "Result is: " << result << '\n';
+  int counter = 1;
+  try {
+    const float result{evaluate(user_input, counter)};
+    std::cout << "Result is: " << result << '\n';
+  } catch (const std::exception &e) {
+    std::cout << e.what() << '\n' << "At Position " + std::to_string(counter);
+  }
 }
