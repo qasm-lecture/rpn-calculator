@@ -1,6 +1,9 @@
 #include "lib.hpp"
 
 #include <stack>
+#include <iostream>
+#include <sstream>
+#include <iterator>
 
 int plus(    int a, int b) { return a + b; }
 int minus(   int a, int b) { return a - b; }
@@ -17,6 +20,13 @@ void change_stack_state(const binary_int_function &operation, stack_type &stack)
   const auto op_b{pop_stack(stack)};
   const auto op_a{pop_stack(stack)};
   stack.push(operation(op_a, op_b));
+}
+
+std::vector<std::string> splitStringBySpace(const std::string& input) {
+    std::istringstream iss(input);
+    std::vector<std::string> result{std::istream_iterator<std::string>{iss},
+                                    std::istream_iterator<std::string>{}};
+    return result;
 }
 
 int evaluate(const std::string &s) {
