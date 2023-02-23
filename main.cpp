@@ -8,7 +8,7 @@ int main() {
 
   if (user_input.empty()) { std::cout << "Empty input\n"; return 1; }
 
-  std::cout << "User input is \"" << user_input << "\"\n";
+  std::cout << "Hello world.\nUser input is \"" << user_input << "\"\n";
 
   int counter = 1;
   try {
